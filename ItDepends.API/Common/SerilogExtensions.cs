@@ -23,4 +23,3 @@ public static class SerilogExtensions
         return hostBuilder;
     }
 }
-

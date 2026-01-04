@@ -40,4 +40,3 @@ public class MemoryHealthCheck(ILogger<MemoryHealthCheck> logger) : IHealthCheck
         }
     }
 }
-

@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using ItDepends.API.Common;
-using Microsoft.Extensions.AI;
 
 namespace ItDepends.API.Features.SmartBoolean;
 
@@ -9,13 +8,17 @@ public static class SmartBooleanEndpoints
     public static IEndpointRouteBuilder MapSmartBooleanEndpoints(this IEndpointRouteBuilder app)
     {
         app.MapGroup("/api/smart")
-            .MapPost("/boolean", async ([FromBody] SmartBooleanRequest request, [FromServices] ISmartBooleanService service, [FromServices] ILogger<Program> logger, CancellationToken cancellationToken) =>
+            .MapPost("/boolean", async ([FromBody] SmartBooleanRequest request,
+                [FromServices] ISmartBooleanService service, [FromServices] ILogger<Program> logger,
+                CancellationToken cancellationToken) =>
             {
-                logger.LogInformation("SmartBoolean request received. PromptLength={PromptLength}", request.Prompt?.Length ?? 0);
+                logger.LogInformation("SmartBoolean request received. PromptLength={PromptLength}",
+                    request.Prompt?.Length ?? 0);
 
                 try
                 {
-                    var resultText = (await service.GetRawResponseAsync(request.Prompt!, cancellationToken)).ToLowerInvariant();
+                    var resultText = (await service.GetRawResponseAsync(request.Prompt!, cancellationToken))
+                        .ToLowerInvariant();
 
                     logger.LogInformation("SmartBoolean model returned '{ResultText}'", resultText);
 
@@ -31,7 +34,8 @@ public static class SmartBooleanEndpoints
                         return Results.Ok(res);
                     }
 
-                    logger.LogWarning("SmartBoolean model response not parsable as boolean: '{ResultText}'", resultText);
+                    logger.LogWarning("SmartBoolean model response not parsable as boolean: '{ResultText}'",
+                        resultText);
                     return Results.Problem(
                         title: "Invalid model response",
                         detail: $"Model response '{resultText}' could not be parsed as a boolean.",

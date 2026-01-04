@@ -45,4 +45,3 @@ public class OpenAIHealthCheck(IChatClient chatClient, ILogger<OpenAIHealthCheck
         }
     }
 }
-

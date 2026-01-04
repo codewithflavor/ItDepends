@@ -16,11 +16,11 @@ builder.Logging.ClearProviders();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.AddOpenAIClient("openai")
-       .AddChatClient("gpt-5-nano");
+    .AddChatClient("gpt-5-nano");
 builder.Services.AddScoped<ISmartBooleanService, SmartBooleanService>();
 
 builder.Services.AddApiHealthChecks();
-    
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

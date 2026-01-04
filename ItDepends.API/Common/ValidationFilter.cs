@@ -1,14 +1,14 @@
 using FluentValidation;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ItDepends.API.Common;
+
 public class ValidationFilter<T>(IValidator<T> validator) : IEndpointFilter
     where T : class
 {
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
         var argument = context.Arguments.OfType<T>().FirstOrDefault();
-        
+
         if (argument == null)
         {
             return await next(context);

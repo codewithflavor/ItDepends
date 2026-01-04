@@ -10,7 +10,9 @@ public interface ISmartBooleanService
 public class SmartBooleanService : ISmartBooleanService
 {
     private readonly IChatClient _client;
-    private const string SystemPrompt = "You are a helpful assistant that always responds with either true or false based on the user's question. Answer only with true or false, without any additional text.";
+
+    private const string SystemPrompt =
+        "You are a helpful assistant that always responds with either true or false based on the user's question. Answer only with true or false, without any additional text.";
 
     public SmartBooleanService(IChatClient client)
     {

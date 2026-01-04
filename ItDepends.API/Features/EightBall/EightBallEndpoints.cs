@@ -1,6 +1,5 @@
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace ItDepends.API.Features.EightBall;
 
@@ -24,7 +23,8 @@ public static class EightBallEndpoints
                 {
                     var resultIndex = RandomNumberGenerator.GetInt32(AvailableResponses.Length);
 
-                    logger.LogInformation("8-ball selected index {Index} with response '{Response}'", resultIndex, AvailableResponses[resultIndex]);
+                    logger.LogInformation("8-ball selected index {Index} with response '{Response}'", resultIndex,
+                        AvailableResponses[resultIndex]);
 
                     return Results.Ok(new EightBallResponse
                     {

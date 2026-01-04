@@ -10,7 +10,7 @@ public static class HealthCheckResponseWriter
         WriteIndented = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
-    
+
     public static HealthCheckResponse FormatResponse(HealthReport report)
     {
         return new HealthCheckResponse
@@ -30,4 +30,3 @@ public static class HealthCheckResponseWriter
         };
     }
 }
-

@@ -1,6 +1,7 @@
 using FluentValidation;
 
 namespace ItDepends.API.Features.SmartBoolean;
+
 public class SmartBooleanRequestValidator : AbstractValidator<SmartBooleanRequest>
 {
     public SmartBooleanRequestValidator()

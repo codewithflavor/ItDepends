@@ -1,6 +1,5 @@
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace ItDepends.API.Features.Boolean;
 

@@ -49,6 +49,7 @@ public static class SmartBooleanEndpoints
                 }
             })
             .AddEndpointFilter<ValidationFilter<SmartBooleanRequest>>()
+            .RequireRateLimiting(RateLimitingExtensions.SmartBooleanPolicy)
             .WithName("GetSmartBoolean")
             .WithTags("Smart Boolean");
 

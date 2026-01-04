@@ -20,6 +20,7 @@ builder.AddOpenAIClient("openai")
 builder.Services.AddScoped<ISmartBooleanService, SmartBooleanService>();
 
 builder.Services.AddApiHealthChecks();
+builder.Services.AddApiRateLimiting();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -32,6 +33,8 @@ app.MapApiHealthChecks();
 app.MapBooleanEndpoints();
 app.MapEightBallEndpoints();
 app.MapSmartBooleanEndpoints();
+
+app.UseRateLimiter();
 
 app.UseSerilogRequestLogging();
 

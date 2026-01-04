@@ -24,7 +24,7 @@ public static class HealthCheckExtensions
                 var report = await healthCheckService.CheckHealthAsync();
                 return Results.Ok(HealthCheckResponseWriter.FormatResponse(report));
             })
-            .WithName("GetHealthCheck")
+            .WithName("GetHealthCheck") 
             .WithSummary("Get comprehensive health status")
             .WithDescription(
                 "Returns the status of all registered health checks including OpenAI service and memory usage.")
